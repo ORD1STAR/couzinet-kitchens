@@ -5,7 +5,7 @@ import { Sun, Moon, ChevronDown, Phone, Mail, MapPin } from 'lucide-react';
 import { heroConfig } from './config';
 
 const kitchens = [
-  {
+  { 
     id: 1,
     image: "/C1.jpg",
     title: "Cuisine moderne élégante",
