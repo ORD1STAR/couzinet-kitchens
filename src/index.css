@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #be282d;
+}
+
+::selection {
+  @apply bg-primary/20 text-primary;
+}
+
+.dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  color: white;
+}
+
+.animate-door {
+  transform-origin: left;
+  animation: door 1s ease-out forwards;
+}
+
+@keyframes door {
+  from {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.section-title {
+  @apply text-4xl font-bold mb-8 inline-block relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-1/3 h-0.5 bg-primary transform origin-left transition-transform duration-500 ease-out;
+}
+
+.section-title:hover::after {
+  @apply scale-x-100;
+}
+
+.nav-link {
+  @apply relative px-4 py-2 transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 transition-transform duration-300 ease-out;
+}
+
+.nav-link:hover::after {
+  @apply scale-x-100;
+}
+
+.kitchen-card {
+  @apply relative overflow-hidden rounded-lg shadow-lg transition-all duration-300;
+}
+
+.kitchen-card:hover {
+  @apply transform scale-[1.02] shadow-xl;
+}
+
+.kitchen-card img {
+  @apply w-full h-[400px] object-cover transition-transform duration-500;
+}
+
+.kitchen-card:hover img {
+  @apply scale-105;
+}
+
+.kitchen-overlay {
+  @apply absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 transform translate-y-full transition-transform duration-300 border-t-2 border-primary;
+}
+
+.kitchen-card:hover .kitchen-overlay {
+  @apply translate-y-0;
+}
+
+/* Updated hero section styles */
+.hero-section {
+  @apply relative w-full h-screen overflow-hidden;
+}
+
+.parallax-bg {
+  @apply absolute inset-0 w-full h-full;
+  transform: translateY(var(--scroll-offset, 0));
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-bg img {
+  @apply w-full h-full object-cover object-center;
+  min-height: 100vh;
+}
+
+.parallax-bg::after {
+  content: '';
+  @apply absolute inset-0 bg-black/50;
+}
+
+.header-scroll {
+  @apply bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
